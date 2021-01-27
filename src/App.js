@@ -1,27 +1,55 @@
-import './App.css';
+import React, { useRef } from 'react'
 import { encrypt, decrypt } from "./crypto";
+import './App.css';
 
 function App() {
-  output = ''
+  let inputRef = useRef()
+  let outputRef = useRef()
+
+  const clickTranslate = (method) => {
+    let inputText = inputRef.current.value
+    if (inputText === '') {
+      alert('🚫 Silahkan menginput text terlebih dahulu!')
+    } else {
+      outputRef.current.value = (method === 'encrypt') ? encrypt(inputText) : decrypt(inputText);
+    }
+  }
 
   return (
-    <div className="App">
-      <div class="container">
-        <h3>ASCII Caesar Chiper</h3>
-        <div class="input">
-          <label for="input">Input</label>
-          <textarea id="input" cols="30" rows="5"></textarea>
-        </div>
-        <div class="output">
-          <label for="output">Output</label>
-          <textarea id="output" cols="30" rows="5">{output}</textarea>
-        </div>
-        <div class="buttons">
-          <button id="encrypt" onClick={output = encrypt("hello")}><div class="plain">Hello</div> <i class="fa fa-long-arrow-right"></i> <div class="chyper">&%$#@</div></button>
-          <button id="decrypt"><div class="chyper">&%$#@</div> <i class="fa fa-long-arrow-right"></i> <div class="plain">Hello</div></button>
-        </div>
+    // <div className="App">
+    <div className="container">
+      <h1>AES-156-CBC</h1>
+
+      {/* INPUT */}
+      <div className="input">
+        <label htmlFor="input">Input</label>
+        <textarea ref={inputRef} id="input" cols="30" rows="5" placeholder="Masukkan text disini..."></textarea>
+      </div>
+
+      {/* OUTPUT */}
+      <div className="output">
+        <label htmlFor="output">Output</label>
+        <textarea ref={outputRef} id="output" cols="30" rows="5" placeholder="Hasil akan tampil disini!"></textarea>
+      </div>
+
+      {/* BUTTONS */}
+      <div className="buttons">
+        {/* ENCRYPT */}
+        <button onClick={() => clickTranslate('encrypt')}>
+          <div className='plain'>Hello</div>
+          <i className="fa fa-long-arrow-right"></i>
+          <div className='cypher'>&$%@#</div>
+        </button>
+
+        {/* DECRYPT */}
+        <button onClick={() => clickTranslate('decrypt')}>
+          <div className='cypher'>&$%@#</div>
+          <i className="fa fa-long-arrow-right"></i>
+          <div className='plain'>Hello</div>
+        </button>
       </div>
     </div>
+    // </div>
   );
 }
 

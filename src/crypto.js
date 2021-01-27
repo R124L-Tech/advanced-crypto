@@ -1,5 +1,3 @@
-'use strict';
-
 const crypto = require('crypto');
 
 const ENCRYPTION_KEY = "12345678123456781234567812345678"; // Must be 256 bits (32 characters)
@@ -13,6 +11,8 @@ function encrypt(text) {
     encrypted = Buffer.concat([encrypted, cipher.final()]);
 
     return iv.toString('hex') + ':' + encrypted.toString('hex');
+    // encryptedText = iv.toString('hex') + ':' + encrypted.toString('hex');
+    // ReactDOM.findDOMNode(document.getElementById('output')).nodeValue = encryptedText;
 }
 
 function decrypt(text) {
