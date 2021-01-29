@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: gray;
+  background-color: #36393d;
 }
 
 .input,
@@ -18,10 +18,8 @@ body {
 }
 
 .container {
-  background-color: rgb(238, 236, 236);
-  max-width: 480px;
+  width: 100%;
   align-items: center;
-  min-height: 100vh;
 }
 
 .key {
@@ -48,7 +46,7 @@ input[type="number"] {
 .input,
 .output,
 .buttons {
-  width: 75%;
+  width: 40%;
 }
 
 textarea {

@@ -1,8 +1,21 @@
 import React, { useRef } from 'react'
 import { encrypt, decrypt } from "./crypto";
+import Header from "./components/Header";
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
 import './App.css';
 
+const useStyles = makeStyles({
+  textField: {
+    marginTop: '20px',
+    width: '40%',
+    backgroundColor: '#1c1d1f',
+    color: 'white'
+  },
+});
+
 function App() {
+  const classes = useStyles();
   let inputRef = useRef()
   let outputRef = useRef()
 
@@ -16,9 +29,18 @@ function App() {
   }
 
   return (
-    // <div className="App">
     <div className="container">
-      <h1>AES-156-CBC</h1>
+      <Header
+        title="AES - 156 - CBC"
+      />
+
+      <TextField
+        id="filled-basic"
+        label="Input"
+        variant="filled"
+        multiline
+        className={classes.textField}
+      />
 
       {/* INPUT */}
       <div className="input">
@@ -49,7 +71,6 @@ function App() {
         </button>
       </div>
     </div>
-    // </div>
   );
 }
 
