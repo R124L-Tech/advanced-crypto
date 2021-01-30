@@ -1,0 +1,26 @@
+.textField-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--darker);
+  width: 100%;
+  padding: 3%;
+  margin-top: 1em;
+  border-radius: 10px;
+}
+
+.textField-label {
+  color: white;
+  padding-bottom: 3px;
+}
+
+.textField-textarea {
+  background-color: rgba(255, 255, 255, 0);
+  color: var(--light-gray);
+  border: 1px solid var(--green);
+  border-right: 0;
+  border-left: 0;
+  padding: 5px;
+  resize: none;
+  outline: none;
+  font-size: 18px;
+}
