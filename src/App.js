@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { encrypt, decrypt } from "./crypto";
 import Header from "./components/Header";
-import TextField from './components/TextField'
+import './TextField.css'
 import './App.css';
 
 function App() {
