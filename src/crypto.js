@@ -11,8 +11,6 @@ function encrypt(text) {
     encrypted = Buffer.concat([encrypted, cipher.final()]);
 
     return iv.toString('hex') + ':' + encrypted.toString('hex');
-    // encryptedText = iv.toString('hex') + ':' + encrypted.toString('hex');
-    // ReactDOM.findDOMNode(document.getElementById('output')).nodeValue = encryptedText;
 }
 
 function decrypt(text) {

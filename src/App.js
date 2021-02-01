@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="container">
       <Header
-        title="AES - 156 - CBC"
+        title="AES - 256 - CBC"
       />
 
       {/* INPUT */}
